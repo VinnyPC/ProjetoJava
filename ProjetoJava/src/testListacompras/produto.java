@@ -70,8 +70,19 @@ public class produto {
 	public void setCodBarras(String codigo) {
 		this.codigo = codigo;
 	}
+	
+	public String toString() {
+		return "Atributos do Produto:"
+		+"\n- Categoria: " + categoria
+		+"\n- Quantidade: " + quantidade
+		+"\n- Marca: " + marca
+		+"\n- Nome:  "+ nome
+		+"\n- Preço: " + preco
+		+"\n- Código:  "+ codigo;
+	}
 
-	public void visualizarProduto() {
+	/*public void visualizarProduto() {
+		
 		System.out.println("Atributos do Produto:");
 		System.out.println("- Categoria: " + categoria);
 		System.out.println("- Quantidade: " + quantidade);
@@ -79,7 +90,8 @@ public class produto {
 		System.out.println("- Nome: " + nome);
 		System.out.println("- Preço: " + preco);
 		System.out.println("- Código: " + codigo);
-	}
+	
+	}*/
 	
 	public String formatarMoeda() {
 		
