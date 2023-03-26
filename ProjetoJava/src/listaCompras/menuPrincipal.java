@@ -1,12 +1,10 @@
-package testListacompras;
+package listaCompras;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
-import testListacompras.util.*;
+
+import listaCompras.util.*;
 
 public class menuPrincipal {
 
@@ -14,10 +12,8 @@ public class menuPrincipal {
 
 		int opcao;
 		funcoesMenu menu = new funcoesMenu();
-		produto produtoTest = new produto(null, 0, null, null, 0, null);
 		Scanner read = new Scanner(System.in);
-		int x;
-		/* List<String> produtos = new ArrayList<>(); */
+		
 		List<produto> listaItens = new ArrayList<produto>();
 		while (true) {
 			menu.mostrarMenu();
@@ -27,18 +23,18 @@ public class menuPrincipal {
 			case 1:
 				produto novoProduto = menu.cadastraProduto();
 				listaItens.add(novoProduto);
-				/*
-				 * for (int i = 0; i < listaItens.size(); i++) {
-				 * System.out.println(listaItens.get(i).toString()); }
-				 */
 				break;
-			case 5:
-				for (int i = 0; i < listaItens.size(); i++) {
-					 System.out.println(listaItens.get(i).toString()); }
+			case 2:
+				System.out.println("\nDigite o nome do item que deseja excluir: ");
+				String nomeExcluir = read.nextLine();
+				funcoesMenu.excluiItem(listaItens, nomeExcluir);
 				break;
 			case 3:
 				
-
+				
+			case 4:
+				funcoesMenu.carregaLista(listaItens);
+				break;
 			}
 
 		}

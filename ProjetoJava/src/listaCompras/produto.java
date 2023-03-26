@@ -1,7 +1,7 @@
-package testListacompras;
+package listaCompras;
 
 import java.text.NumberFormat;
-import java.util.Scanner;
+import java.util.List;
 
 public class produto {
 
@@ -12,7 +12,8 @@ public class produto {
 	String tipo;
 	double preco;
 	String codigo;
-
+	
+	
 	public produto(String categoria, int quantidade, String marca, String nome, double preco, String codigo) {
 		super();
 		this.categoria = categoria;
@@ -38,7 +39,7 @@ public class produto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-
+	
 	public String getMarca() {
 		return marca;
 	}
@@ -70,31 +71,15 @@ public class produto {
 	public void setCodBarras(String codigo) {
 		this.codigo = codigo;
 	}
-	
+
 	public String toString() {
-		return "Atributos do Produto:"
-		+"\n- Categoria: " + categoria
-		+"\n- Quantidade: " + quantidade
-		+"\n- Marca: " + marca
-		+"\n- Nome:  "+ nome
-		+"\n- Preço: " + preco
-		+"\n- Código:  "+ codigo;
+		return "Atributos do Produto:" + "\n- Categoria: " + categoria + "\n- Quantidade: " + quantidade + "\n- Marca: "
+				+ marca + "\n- Nome:  " + nome + "\n- Preço: " + formatarMoeda() + "\n- Código:  " + codigo;
 	}
 
-	/*public void visualizarProduto() {
-		
-		System.out.println("Atributos do Produto:");
-		System.out.println("- Categoria: " + categoria);
-		System.out.println("- Quantidade: " + quantidade);
-		System.out.println("- Marca: " + marca);
-		System.out.println("- Nome: " + nome);
-		System.out.println("- Preço: " + preco);
-		System.out.println("- Código: " + codigo);
-	
-	}*/
-	
+	//----------------------------------
 	public String formatarMoeda() {
-		
+
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		nf.setMinimumFractionDigits(2);
 		String formatoMoeda = nf.format(preco);

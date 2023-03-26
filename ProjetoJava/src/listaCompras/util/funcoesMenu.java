@@ -1,9 +1,12 @@
-package testListacompras.util;
+package listaCompras.util;
 
-import java.text.NumberFormat;
+
+import java.util.List;
 import java.util.Scanner;
 
-import testListacompras.produto;
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import listaCompras.produto;
 
 public class funcoesMenu {
 
@@ -11,10 +14,9 @@ public class funcoesMenu {
 		System.out.println("Programa de lista de compras\n");
 		System.out.println("Selecione uma opção:\n");
 		System.out.println("1 | Adicionar item à lista de compras");
-		System.out.println("2 | Adicionar vários itens à lista de compras");
-		System.out.println("3 | Remover itens da lista de compras");
-		System.out.println("4 | Atualizar itens da lista de compras");
-		System.out.println("5 | Carregar lista de compras");
+		System.out.println("2 | Remover itens da lista de compras");
+		System.out.println("3 | Atualizar itens da lista de compras");
+		System.out.println("4 | Carregar lista de compras");
 		System.out.println("\n" + "-".repeat(50));
 	}
 
@@ -39,7 +41,7 @@ public class funcoesMenu {
 			ProdutoTest.setMarca(marca);
 			
 			System.out.println("\nDigite o preço: ");
-			double preco = read.nextInt();
+			double preco = read.nextDouble();
 			read.nextLine();
 			ProdutoTest.setPreco(preco);
 			
@@ -47,9 +49,25 @@ public class funcoesMenu {
 			String codigo = read.nextLine();
 			ProdutoTest.setCodBarras(codigo);
 			return ProdutoTest;
-		
-		
-
+	}
+	
+	public static void carregaLista(List<produto> listaItens) {
+		for (int i = 0; i < listaItens.size(); i++) {
+			System.out.println("\nItem: "+(i+1));
+			 System.out.println(listaItens.get(i).toString()); 
+			 System.out.println("\n" + "-".repeat(50));
+		}
+	}
+	
+	
+	public static void excluiItem(List<produto> listaItens, Object nomeTest) {
+		for (int i = 0; i < listaItens.size(); i++) {
+			if(listaItens.get(i).getNome().equals(nomeTest)) {
+				listaItens.remove(i);
+				System.out.println("\nProduto removido com sucesso: ");
+				return;
+			}
+		}
 	}
 	
 	
