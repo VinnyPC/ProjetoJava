@@ -17,22 +17,21 @@ public class menuPrincipal {
 
 		List<produto> listaItens = new ArrayList<produto>();
 		while (true) {
-					menu.mostrarMenu();
-					opcao = read.nextInt();
-			/*boolean continueLoop = true;
+					
+			boolean continueLoop = true;
 			do {
 
 				try {
-				
-					continueLoop = false;
+					menu.mostrarMenu();
+					opcao = read.nextInt();
+					break;
 				} catch (InputMismatchException inputMismatchException) {
 
 					System.err.println(inputMismatchException);
 					System.out.println("\nDigite um numero valido:\n\n");
-					menu.mostrarMenu();
-					break;
+					read.nextLine();
 				}
-			} while (continueLoop = true);*/
+			} while (continueLoop == true);
 			switch (opcao) {
 			case 1:
 
