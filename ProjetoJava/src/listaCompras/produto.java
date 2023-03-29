@@ -1,7 +1,6 @@
 package listaCompras;
 
 import java.text.NumberFormat;
-import java.util.List;
 
 public class produto {
 
@@ -86,4 +85,6 @@ public class produto {
 		return formatoMoeda;
 	}
 
+	
+	
 }
