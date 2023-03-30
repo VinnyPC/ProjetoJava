@@ -21,7 +21,7 @@ public class menuPrincipal {
 		while (true) {
 
 			while (true) {
-				
+
 				try {
 					menu.mostrarMenu();
 					opcao = read.nextInt();
@@ -43,24 +43,24 @@ public class menuPrincipal {
 				break;
 
 			case 2:
-				if(funcoesMenu.verificaLista(listaItens) == true) {
-				break;
-				
-				}else {
-				read.nextLine();
-				System.out.println("                                              ");
-				System.out.println("Digite o nome do item que deseja excluir:   ");
-				System.out.println("                                              ");
-				String nomeExcluir = read.nextLine();
-				funcoesMenu.excluiItem(listaItens, nomeExcluir);
-				break;
+				if (funcoesMenu.verificaLista(listaItens) == true) {
+					break;
+
+				} else {
+					read.nextLine();
+					System.out.println("                                              ");
+					System.out.println("Digite o nome do item que deseja excluir:   ");
+					System.out.println("                                              ");
+					String nomeExcluir = read.nextLine();
+					funcoesMenu.excluiItem(listaItens, nomeExcluir);
+					break;
 				}
 			case 3:
-				read.nextLine();
-				if(funcoesMenu.verificaLista(listaItens)) {
+				if (funcoesMenu.verificaLista(listaItens) == true) {
 					break;
-					
-				}else {
+
+				} else {
+				read.nextLine();
 				System.out.println("                                                 ");
 				System.out.println("Digite o nome do produto que deseja atualizar: ");
 				System.out.println("                                                 ");
@@ -69,26 +69,24 @@ public class menuPrincipal {
 				break;
 				}
 			case 4:
-				if(funcoesMenu.verificaLista(listaItens)) {
+				if (funcoesMenu.verificaLista(listaItens)) {
+					return;
+
+				} else {
+					read.nextLine();
+					funcoesMenu.carregaLista(listaItens);
+					System.out.printf(
+							"O Numero de itens do mesmo tipo na lista: " + funcoesMenu.quantidadeDeItems(listaItens));
+					System.out.println("                                           ");
+					System.out.println("Valor total da Lista: " + funcoesMenu.calculaItem(listaItens));
 					break;
-					
-				}else {
-				read.nextLine();
-				funcoesMenu.carregaLista(listaItens);
-				System.out.printf(
-						"O Numero de itens do mesmo tipo na lista: " + funcoesMenu.quantidadeDeItems(listaItens));
-				System.out.println("                                           ");
-				System.out.println("Valor total da Lista: " + funcoesMenu.calculaItem(listaItens));
-				break;
 				}
 			default:
 
-				System.out.println(Cores.TEXT_RED_BOLD+"Digite um numero valido:"+Cores.TEXT_RESET);
-				
+				System.out.println(Cores.TEXT_RED_BOLD + "Digite um numero valido:" + Cores.TEXT_RESET);
+
 			}
 
 		}
-
 	}
-
 }
