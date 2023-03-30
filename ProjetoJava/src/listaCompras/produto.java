@@ -77,6 +77,7 @@ public class produto {
 	}
 
 	//----------------------------------
+	
 	public String formatarMoeda() {
 
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
