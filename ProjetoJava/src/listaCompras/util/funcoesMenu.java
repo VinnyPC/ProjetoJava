@@ -118,7 +118,7 @@ public class funcoesMenu {
 		Scanner read = new Scanner(System.in);
 
 		for (int i = 0; i < listaItens.size(); i++) {
-			if (listaItens.get(i).getNome().equals(nome1)) {
+			if (listaItens.get(i).getNome().contains(nome1)) {
 				listaItens.remove(i);
 				System.out.println("Insira os dados do novo Produto:   ");
 				produto atualizaProduto = cadastraProduto();
