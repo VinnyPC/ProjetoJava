@@ -1,5 +1,6 @@
 package listaCompras;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -30,62 +31,124 @@ public class menuPrincipal {
 				} catch (InputMismatchException inputMismatchException) {
 
 					System.err.println(inputMismatchException);
-					System.out.println("                                              ");
-					System.out.println("Digite um numero valido:                    ");
-					System.out.println("                                              ");
-					read.nextLine();
+					System.out.println(Cores.TEXT_RED_BOLD + Cores.ANSI_BLACK_BACKGROUND
+							+ "                 ╓══════════════════════════════════════════════════════════════════════════════════════════╖                 ");
+					System.out.println(
+							"                 ║                            DiGITE UM NUMERO VALIDO :                                     ║                 ");
+					System.out.println(
+							"                 ╙══════════════════════════════════════════════════════════════════════════════════════════╜                 "
+									+ Cores.TEXT_RESET);
+					keyPress();
 				}
 			}
 			switch (opcao) {
 			case 1:
 				produto novoProduto = menu.cadastraProduto();
 				listaItens.add(novoProduto);
+				keyPress();
 				break;
 
 			case 2:
 				if (funcoesMenu.verificaLista(listaItens) == true) {
+					keyPress();
 					break;
 
 				} else {
 					read.nextLine();
-					System.out.println("                                              ");
-					System.out.println("Digite o nome do item que deseja excluir:   ");
-					System.out.println("                                              ");
+					System.out.println(
+							"                  ╓══════════════════════════════════════════════════════════════════════════════════════════╖                 ");
+					System.out.println(
+							"                  ║                          Digite o nome do item que deseja excluir:                       ║                 ");
+					System.out.println(
+							"                  ╙══════════════════════════════════════════════════════════════════════════════════════════╜                 ");
 					String nomeExcluir = read.nextLine();
 					funcoesMenu.excluiItem(listaItens, nomeExcluir);
+					keyPress();
 					break;
 				}
 			case 3:
 				if (funcoesMenu.verificaLista(listaItens) == true) {
+					keyPress();
 					break;
 
 				} else {
-				read.nextLine();
-				System.out.println("                                                 ");
-				System.out.println("Digite o nome do produto que deseja atualizar: ");
-				System.out.println("                                                 ");
-				String atualiza = read.nextLine();
-				funcoesMenu.atualizarItem(listaItens, atualiza);
-				break;
+					read.nextLine();
+					System.out.println(
+							"                 ╓══════════════════════════════════════════════════════════════════════════════════════════╖                  ");
+					System.out.println(
+							"                 ║                          Digite o nome do produto que dejesa atualizar:                  ║                  ");
+					System.out.println(
+							"                 ╙══════════════════════════════════════════════════════════════════════════════════════════╜                  "
+									+ Cores.TEXT_RESET);
+					String atualiza = read.nextLine();
+					funcoesMenu.atualizarItem(listaItens, atualiza);
+					keyPress();
+					break;
 				}
 			case 4:
 				if (funcoesMenu.verificaLista(listaItens)) {
-					return;
+					keyPress();
+					break;
 
 				} else {
 					read.nextLine();
 					funcoesMenu.carregaLista(listaItens);
-					System.out.printf(
-							"O Numero de itens do mesmo tipo na lista: " + funcoesMenu.quantidadeDeItems(listaItens));
-					System.out.println("                                           ");
-					System.out.println("Valor total da Lista: " + funcoesMenu.calculaItem(listaItens));
+					System.out.println(
+							"                 ╓══════════════════════════════════════════════════════════════════════════════════════════╖                   ");
+					System.out.println("                 ║                O Numero de itens na lista: "
+							+ funcoesMenu.quantidadeDeItems(listaItens)
+							+ "                                            ║                   ");
+					System.out.println(
+							"                 ╙══════════════════════════════════════════════════════════════════════════════════════════╜                   ");
+					read.nextLine();
+					System.out.println(
+							"                 ╓══════════════════════════════════════════════════════════════════════════════════════════╖                   ");
+					System.out.println("                 ║                Valor total da Lista: R$ "
+							+ funcoesMenu.calculaItem(listaItens)
+							+ "                                           ║                 ");
+					System.out.println(
+							"                 ╙══════════════════════════════════════════════════════════════════════════════════════════╜                   ");
+					keyPress();
 					break;
 				}
+
 			default:
 
-				System.out.println(Cores.TEXT_RED_BOLD + "Digite um numero valido:" + Cores.TEXT_RESET);
-
+				System.out.println(Cores.TEXT_RED_BOLD + Cores.ANSI_BLACK_BACKGROUND
+						+ "                 ╓══════════════════════════════════════════════════════════════════════════════════════════╖                 ");
+				System.out.println(
+						"                 ║                            DiGITE UM NUMERO VALIDO :                                     ║                 ");
+				System.out.println(
+						"                 ╙══════════════════════════════════════════════════════════════════════════════════════════╜                 "
+								+ Cores.TEXT_RESET);
+				read.nextLine();
+				keyPress();
 			}
+
+		}
+	}
+
+	public static void keyPress() {
+
+		try {
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT 
+					+ "                  ╓══════════════════════════════════════════════════════════════════════════════════════════╖                  ");
+			System.out.println(
+					"                  ║                               Pressione Enter para Continuar...                          ║                  ");
+			System.out.println(
+					"                  ╙══════════════════════════════════════════════════════════════════════════════════════════╜                  "
+							+ Cores.TEXT_RESET);
+			System.in.read();
+
+		} catch (IOException e) {
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT 
+				
+					+ "                 ╓══════════════════════════════════════════════════════════════════════════════════════════╖                 ");
+			System.out.println(
+					"                 ║                          Você pressionou uma tecla diferente de enter!                   ║                 ");
+			System.out.println(
+					"                 ╙══════════════════════════════════════════════════════════════════════════════════════════╜                 "
+							+ Cores.TEXT_RESET);
 
 		}
 	}
